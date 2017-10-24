@@ -1,6 +1,6 @@
 FROM node:latest
 
-RUN apt-get update && apt-get install -y build-essential apt-transport-https ca-certificates curl gnupg2 software-properties-common tar
+RUN apt-get update && apt-get install -y build-essential apt-transport-https ca-certificates curl tar
 
 ## Docker Compose
 RUN curl -L https://github.com/docker/compose/releases/download/1.16.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
