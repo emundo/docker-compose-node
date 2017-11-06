@@ -9,3 +9,6 @@ RUN chmod +x /usr/local/bin/docker-compose
 ## Docker
 RUN curl https://download.docker.com/linux/static/stable/x86_64/docker-17.09.0-ce.tgz > docker.tar.gz && tar xzvf docker.tar.gz -C /usr/local/bin/ --strip-components=1
 RUN rm docker.tar.gz && docker -v
+
+## PhantomJS
+RUN apt-get install -y phantomjs
