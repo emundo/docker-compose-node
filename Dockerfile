@@ -11,5 +11,4 @@ RUN curl https://download.docker.com/linux/static/stable/x86_64/docker-17.09.0-c
 RUN rm docker.tar.gz && docker -v
 
 ## PhantomJS
-RUN echo 'deb http://ftp.debian.org/debian jessie-backports main' >> /etc/apt/sources.list.d/phantomjs.list
-RUN apt-get update && apt-get install -y phantomjs
+RUN curl https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 > phantomjs.tar.bz2 && tar xzvf phantomjs.tar.bz2 -C /usr/local/bin/ --strip-components=1
