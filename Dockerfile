@@ -11,4 +11,4 @@ RUN curl https://download.docker.com/linux/static/stable/x86_64/docker-17.09.0-c
 RUN rm docker.tar.gz && docker -v
 
 ## PhantomJS
-RUN curl https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 > phantomjs.tar.bz2 && tar xzvf phantomjs.tar.bz2 -C /usr/local/bin/ --strip-components=1
+RUN curl -L https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 > phantomjs.tar.bz2 && tar xjvf phantomjs.tar.bz2 phantomjs-2.1.1-linux-x86_64/bin/phantomjs --strip-components=2 -C /usr/local/bin/
