@@ -16,5 +16,5 @@ RUN curl -L https://github.com/rancher/rancher-compose/releases/download/v0.12.5
 
 ## CI User
 RUN useradd -ms /bin/bash ci && adduser ci sudo
-USER ci
+USER ci:0
 WORKDIR /home/ci
