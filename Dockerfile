@@ -18,10 +18,14 @@ RUN curl -L https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linu
 RUN curl -L https://github.com/rancher/rancher-compose/releases/download/v0.12.5/rancher-compose-linux-amd64-v0.12.5.tar.xz | tar xJvf -  --strip-components=2 -C /usr/local/bin/ && chmod +x /usr/local/bin/rancher-compose
 
 ## emundo User
-RUN addgroup --gid 1101 docker && \
-    # Wir verwenden u.a. dieses Image in RancherOs und brauchen deswegen diese Gruppe: http://rancher.com/docs/os/v1.1/en/system-services/custom-system-services/#creating-your-own-console
+RUN addgroup --gid 1101 rancher && \
+    # Für RancherOS brauchen wir diese Gruppe: http://rancher.com/docs/os/v1.1/en/system-services/custom-system-services/#creating-your-own-console
+    addgroup --gid 999 aws && \
+    # Für die AWS brauchen wir diese Gruppe
     useradd -ms /bin/bash emundo && \
     adduser emundo sudo && \
+    # Das ist notwendig, damit das Image in RancherOS funktioniert
+    usermod -aG 999 emundo && \
     # Das ist notwendig, damit das Image in RancherOS funktioniert
     usermod -aG 1101 emundo && \
     # Das ist notwendig, damit das Image lokal funktioniert
